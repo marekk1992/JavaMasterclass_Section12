@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 public abstract class HeavenlyBody {
-
     private final String name;
     private final double orbitalPeriod;
     private final Set<HeavenlyBody> satellites;
@@ -22,7 +21,6 @@ public abstract class HeavenlyBody {
     public double getOrbitalPeriod() {
         return orbitalPeriod;
     }
-
 
     public boolean addSatellite(HeavenlyBody moon) {
         if (moon.getBodyType() == HeavenlyBodyType.MOON) {
@@ -70,8 +68,8 @@ public abstract class HeavenlyBody {
     }
 
     public static final class Key {
-        private String name;
-        private HeavenlyBodyType bodyType;
+        private final String name;
+        private final HeavenlyBodyType bodyType;
 
         public Key(String name, HeavenlyBodyType bodyType) {
             this.name = name;
@@ -94,10 +92,7 @@ public abstract class HeavenlyBody {
         @Override
         public boolean equals(Object obj) {
             Key key = (Key) obj;
-            if (this.name.equals(key.getName())) {
-                return this.bodyType == key.getBodyType();
-            }
-            return false;
+            return name.equals(key.getName()) && bodyType.equals(key.getBodyType());
         }
     }
 }

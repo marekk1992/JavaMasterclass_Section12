@@ -6,7 +6,6 @@ import java.util.Map;
 import java.util.Set;
 
 public class Main {
-
     private static Map<HeavenlyBody.Key, HeavenlyBody> solarSystem = new HashMap<>();
     private static Set<HeavenlyBody> planets = new HashSet<>();
 
