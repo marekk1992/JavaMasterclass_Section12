@@ -28,9 +28,9 @@ public class StockList {
 
 //    modified by including reverseStock() method
     public int sellStock(String item, int quantity) {
-        StockItem inStock = list.getOrDefault(item, null);
+        StockItem inStock = list.get(item);
 
-        if ((inStock != null && inStock.reserveStock(quantity))) {
+        if (inStock != null && inStock.reserveStock(quantity) && quantity > 0) {
             return quantity;
         }
         return 0;
